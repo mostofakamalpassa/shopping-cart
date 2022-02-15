@@ -58,7 +58,7 @@ function calculateField(){
   const tax = document.getElementById('tax');
   const grandTotal = document.getElementById('grandTotal');
   let subTotalParse = parseFloat(subTotal.innerText);
-  let taxWitProduct = (mobliePrice + casePrice * 20)/100;
+  let taxWitProduct = ((mobliePrice + casePrice) * 20)/100;
   grandTotal.innerText = (mobliePrice + casePrice + taxWitProduct);
   subTotal.innerText = mobliePrice + casePrice;
   tax.innerText = taxWitProduct;
