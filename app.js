@@ -15,6 +15,9 @@ function updateMobile(inputquty,showPrice, productParPrice, isIncrese){
    let totalprice = productParPrice * quanitityValue;
    price.innerText = totalprice;
 
+   // Calculator using 
+   debugger
+   calculateField();
 }
 
 document.getElementById("moblie-plus").addEventListener("click", function (e) {
@@ -35,3 +38,28 @@ document.getElementById('case-minus').addEventListener('click',function(e){
     updateMobile('case-quantity','case-price', 59, false);
         
 })
+
+
+function getInputField(quanitity, productPrice ){
+    const productQuantity = document.getElementById(quanitity);
+
+    let parseQuantyty = parseInt(productQuantity.value);
+    
+    return parseQuantyty *  productPrice;
+    
+
+}
+
+function calculateField(){
+  const mobliePrice =  getInputField('quanitity', 1219 );
+  const casePrice = getInputField('case-quantity', 59 );
+
+  const subTotal = document.getElementById('subtotal');
+  const tax = document.getElementById('tax');
+  const grandTotal = document.getElementById('grandTotal');
+  let subTotalParse = parseFloat(subTotal.innerText);
+  let taxWitProduct = (mobliePrice + casePrice * 20)/100;
+  grandTotal.innerText = (mobliePrice + casePrice + taxWitProduct);
+  subTotal.innerText = mobliePrice + casePrice;
+  tax.innerText = taxWitProduct;
+}
